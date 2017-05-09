@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+<!--         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+ -->        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+          <script type="text/javascript" src="cordova.js"></script>
+
+        <!--p5 -->
+
+     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <script language="javascript" type="text/javascript" src="libraries/toxiclibs.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/toxichelper.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/p5.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.dom.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.2/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+       
+        <title>SHEKIT</title>
+    </head>
+    <body>
+    <script>
+var currentScreen= null;
+var screen1 = null;
+var screen2 = null;
+
+function appPause(){
+    console.log("pause");
+}
+function appResume(){
+    console.log("resume");
+}
+function ready(){
+    console.log("ready");
+    document.addEventListener('resume', appResume);
+    document.addEventListener('pause', appPause);
+
+
+}
+function loaded (){
+
+    document.addEventListener('deviceready',ready);
+
+    // letseatButton= document.getElementById("shakeIt");
+    
+    // letseatButton.addEventListener('click', gotoBalls);
+     //changeScreen(screen1);
+     splash(screen1);
+
+     document.getElementById("screen1").style.display= "block";
+}
+
+function splash(currentScreen){
+    setTimeout(function(){
+            console.log("???");
+         document.getElementById("currentScreen").style.display='block';
+         },3000);
+}
+
+function changeScreen(newScreen){
+    if(currentScreen!=null){
+        currentScreen.style.display= "none";
+    }
+    currentScreen= newScreen;
+    currentScreen.style.display= "block";
+
+    }
+
+
+    function gotoBalls(){
+    console.log("Going to screen2")
+    changeScreen(screen2);
+}
+
+
+    window.addEventListener('load',loaded);
+    </script>
+
+    <!-- <script src="ball.js"></script> -->
+    <script language="javascript" type="text/javascript" src="particle.js"></script>
+    <script src="sketch.js"></script>
+    <style>
+    @import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
+            
+            
+        #screen1{
+        display:none;
+        }
+           #shakeIt{
+
+            height: 60px;
+            width: 200px;
+            position: absolute;
+            margin: auto;
+            top: 400px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+
+            background: #d3000d;
+            text-align: center;
+            line-height: 57px;
+            font-size: 25px;
+            color: white;
+            font-family: 'Lato';
+        }
+
+    </style>
+
+        <div id="screen1" style="display: block;">
+        <!-- <img id = "logo" src="logo.png" style="width:200px;height:150px;"> -->
+        <!-- <img id = "lifeis" src="lifeis.png" style="width:200px;height:47px;"> -->
+        <!-- <div id = "shakeIt" class="blink"> Click and Shake it! </div> -->
+
+        <!-- <img id = "todays" src="todays.png" > -->
+        <!-- <p id= "cp">Life is too short to be ignorant of good food</p> -->
+        <!-- <div> I am so hungry.. what should I eat? </div> -->
+        
+        </div>
+
+    </body>
+</html>
